@@ -2,6 +2,7 @@ use opentelemetry::{trace::TracerProvider, KeyValue};
 
 use opentelemetry_sdk::Resource;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt, EnvFilter};
+
 pub fn init_otlp(name: &str) {
     opentelemetry::global::set_text_map_propagator(
         opentelemetry_sdk::propagation::TraceContextPropagator::new(),

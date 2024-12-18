@@ -1,3 +1,5 @@
+use std::sync::Once;
+
 use actix_web::{middleware, web, App, HttpRequest, HttpServer};
 
 mod otel;
@@ -9,13 +11,15 @@ async fn index(req: HttpRequest) -> &'static str {
     "Hello world!"
 }
 
+static INIT: Once = Once::new();
+
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     env_logger::init_from_env(env_logger::Env::new().default_filter_or("info"));
 
     log::info!("starting HTTP server at http://localhost:8080");
 
-    init_otlp("otel-actix-example");
+    INIT.call_once(|| init_otlp("otel-actix-example"));
 
     HttpServer::new(|| {
         App::new()

@@ -28,4 +28,4 @@ tokio-util = "0.7"
 tracing = "0.1"
 tracing-bunyan-formatter = "0.3.7"
 tracing-opentelemetry = "0.25"
-tracing-subscriber = { version = "0.3.19", default-features = false, features = ["env-filter", "ansi", "tracing-log"] }
+tracing-subscriber = { version = "0.3.19", default-features = false, features = ["env-filter", "ansi"] }
