@@ -31,7 +31,7 @@ pub fn init_otlp(name: &str) {
     let formatting_layer = tracing_subscriber::fmt::Layer::default();
 
     if let Err(e) = tracing_subscriber::Registry::default()
-        .with(EnvFilter::from_default_env())
+        // .with(EnvFilter::from_default_env())
         .with(tracing_opentelemetry::layer().with_tracer(provider.tracer(name.to_string())))
         .with(formatting_layer)
         .try_init()
@@ -41,5 +41,5 @@ pub fn init_otlp(name: &str) {
 }
 
 fn sampler() -> opentelemetry_sdk::trace::Sampler {
-    opentelemetry_sdk::trace::Sampler::TraceIdRatioBased(0.001)
+    opentelemetry_sdk::trace::Sampler::TraceIdRatioBased(1.001)
 }
