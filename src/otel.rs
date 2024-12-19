@@ -1,5 +1,6 @@
 use opentelemetry::{trace::TracerProvider, KeyValue};
 
+use opentelemetry_otlp::WithExportConfig;
 use opentelemetry_sdk::Resource;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt, EnvFilter};
 
@@ -21,7 +22,11 @@ pub fn init_otlp(name: &str) {
                     sampler(),
                 ))),
         )
-        .with_exporter(opentelemetry_otlp::new_exporter().tonic())
+        .with_exporter(
+            opentelemetry_otlp::new_exporter()
+                .tonic()
+                .with_endpoint("http://localhost:4317"),
+        )
         .install_batch(opentelemetry_sdk::runtime::Tokio)
         .expect("unable to setup tracing pipeline");
 
@@ -31,7 +36,7 @@ pub fn init_otlp(name: &str) {
     let formatting_layer = tracing_subscriber::fmt::Layer::default();
 
     if let Err(e) = tracing_subscriber::Registry::default()
-        // .with(EnvFilter::from_default_env())
+        //.with(EnvFilter::from_default_env())
         .with(tracing_opentelemetry::layer().with_tracer(provider.tracer(name.to_string())))
         .with(formatting_layer)
         .try_init()
