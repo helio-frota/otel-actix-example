@@ -25,7 +25,9 @@ pub fn init_otlp(name: &str) {
         .with_exporter(
             opentelemetry_otlp::new_exporter()
                 .tonic()
-                .with_endpoint("http://localhost:4317"),
+                // .with_endpoint("http://jaeger.192.168.39.78.nip.io:4317"),
+                // .with_endpoint("http://0.0.0.0:4317"),
+                .with_endpoint("http://jaeger:4317"),
         )
         .install_batch(opentelemetry_sdk::runtime::Tokio)
         .expect("unable to setup tracing pipeline");

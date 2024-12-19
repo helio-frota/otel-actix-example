@@ -16,3 +16,8 @@ services:
       - "14268:14268"
       - "14269:14269"
       - "9411:9411"
+    networks:
+      - jaeger-net
+networks:
+  jaeger-net:
+    external: true
