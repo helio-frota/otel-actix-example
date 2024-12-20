@@ -1,5 +1,7 @@
 # otel-actix-example
 
+This is a test repo, code extracted from https://github.com/trustification/trustify
+
 ```
 podman network create jaeger-net
 podman compose up
