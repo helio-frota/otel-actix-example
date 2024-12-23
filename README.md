@@ -17,6 +17,8 @@ trying to deploy to minikube
 (fish)
 ```
 eval $(minikube docker-env)
-docker build -t otel-actix-example:latest .
+minikube image build -t otel-actix-example -f Containerfile .
+
+kubectl expose pod otel-actix-example --type=ClusterIP --name=otel-actix-example-service --port=80 --target-port=8080 -n trustify
 kubectl apply -f deployment.yml
 ```
