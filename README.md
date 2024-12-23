@@ -18,7 +18,7 @@ trying to deploy to minikube
 ```
 eval $(minikube docker-env)
 minikube image build -t otel-actix-example -f Containerfile .
-
+kubectl run otel-actix-example --image=otel-actix-example --image-pull-policy=Never --restart=Never
 kubectl expose pod otel-actix-example --type=ClusterIP --name=otel-actix-example-service --port=80 --target-port=8080 -n trustify
-kubectl apply -f deployment.yml
+kubectl apply -f ingress.yml
 ```
