@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otel-actix-example
+  namespace: trustify
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: otel-actix-example
+  template:
+    metadata:
+      labels:
+        app: otel-actix-example
+    spec:
+      containers:
+        - name: otel-actix-example
+          image: localhost/otel-actix-example:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: otel-actix-example
+  namespace: trustify
+spec:
+  selector:
+    app: otel-actix-example
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: NodePort
+
