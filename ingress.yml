@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: otel-actix-example.192.168.39.192.nip.io
+    - host: otel-actix-example.192.168.39.22.nip.io
       http:
         paths:
           - path: /
