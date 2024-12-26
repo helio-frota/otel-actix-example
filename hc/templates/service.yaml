@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: otel-actix-example-service
+  name: otel-actix-service
 spec:
   ports:
     - protocol: TCP
