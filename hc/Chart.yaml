@@ -1,0 +1,6 @@
+apiVersion: v2           # v2 for helm 3, v1 for helm 2
+name: otel-actix-example # The name of the app
+appVersion: 0.1.0        # The app version
+description: OTEL basic example
+version: 0.1.0           # Chart version
+type: application        # We can tag a chart as a lib or app

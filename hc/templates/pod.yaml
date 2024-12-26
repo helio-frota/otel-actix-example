@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: otel-actix-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: otel-actix-example
+  template:
+    metadata:
+      labels:
+        app: otel-actix-example
+    spec:
+      containers:
+      - name: otel-actix-example
+        image: otel-actix-example:latest
+        imagePullPolicy: Never
+        ports:
+        - name: otel-actix-example
+          containerPort: 8080
