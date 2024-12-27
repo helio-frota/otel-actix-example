@@ -4,9 +4,3 @@ appVersion: 0.1.0        # The app version
 description: OTEL basic example
 version: 0.1.0           # Chart version
 type: application        # We can tag a chart as a lib or app
-
-dependencies:            # Jaeger is used as dependency, not as part of Chart umbrella
-  - name: jaeger
-    repository: https://jaegertracing.github.io/helm-charts
-    version: 3.3.3
-
