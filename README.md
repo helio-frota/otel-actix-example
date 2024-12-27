@@ -12,7 +12,7 @@ podman build -t otel-actix-example .
 podman run -p 8080:8080 --network jaeger-net bee24148ee9d5f2b90964f0857578b2002069038457e7c5bdf01f6bf790ffa08 (image hash here)
 ```
 
-minikube
+## minikube
 
 ```
 eval $(minikube docker-env)
@@ -34,3 +34,18 @@ Click on otel-actix-example and then see the logs
 ```
 kubectl logs otel-actix-example
 ```
+
+## minikube 
+
+```
+minikube start --cpus 6 --memory 16000 --disk-size 20gb --addons ingress
+set NAMESPACE trustify
+set APP_DOMAIN .(minikube ip).nip.io
+kubectl create ns $NAMESPACE
+kubectl config set-context --current --namespace=$NAMESPACE
+minikube image build -t otel-actix -f Containerfile .
+cd hc
+helm install otel-actix
+```
+
+

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: otel-actix
-        image: docker.io/library/otel-actix:latest
+        image: docker.io/library/otel-actix:latest # minikube image build -t otel-actix -f Containerfile .
         imagePullPolicy: Never
         ports:
         - name: otel-actix
