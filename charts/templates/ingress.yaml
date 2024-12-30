@@ -1,7 +1,8 @@
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Release.Name }}-{{ .Chart.Name }}-ingress
+  name: otel-actix-ingress
 spec:
   defaultBackend:
     service:

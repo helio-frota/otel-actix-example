@@ -1,0 +1,12 @@
+---
+apiVersion: v2
+name: infra
+description: Jaeger all in one
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+
+dependencies:
+  - name: jaeger
+    repository: https://jaegertracing.github.io/helm-charts
+    version: 3.3.3

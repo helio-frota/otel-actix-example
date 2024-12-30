@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -13,9 +14,9 @@ spec:
         app: otel-actix
     spec:
       containers:
-      - name: otel-actix
-        image: docker.io/library/otel-actix:latest # minikube image build -t otel-actix -f Containerfile .
-        imagePullPolicy: Never
-        ports:
+      name: otel-actix
+      image: docker.io/library/otel-actix:latest
+      imagePullPolicy: Never
+      ports:
         - name: otel-actix
           containerPort: 8080

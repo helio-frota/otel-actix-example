@@ -35,17 +35,26 @@ Click on otel-actix-example and then see the logs
 kubectl logs otel-actix-example
 ```
 
-## minikube 
+## minikube with helm 
 
 ```
+# start
 minikube start --cpus 6 --memory 16000 --disk-size 20gb --addons ingress
+
+# config
 set NAMESPACE trustify
 set APP_DOMAIN .(minikube ip).nip.io
 kubectl create ns $NAMESPACE
 kubectl config set-context --current --namespace=$NAMESPACE
+
+# install jaeger
+helm upgrade --install --dependency-update -n $NAMESPACE infra charts/infra --values charts/infra/values.yaml --set-string jaeger.allInOne.ingress.hosts[0]=j
+aeger$APP_DOMAIN --set tracing.enabled=true
+
+# build app image within minikube
 minikube image build -t otel-actix -f Containerfile .
-cd hc
+
+# install the app
 helm install otel-actix
 ```
-
 
