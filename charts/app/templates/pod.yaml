@@ -19,3 +19,6 @@ spec:
           imagePullPolicy: Never
           ports:
             - containerPort: 8080
+          env:
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: {{.Values.otlpEndpoint | quote}}
