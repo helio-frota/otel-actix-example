@@ -55,6 +55,13 @@ aeger$APP_DOMAIN --set tracing.enabled=true
 minikube image build -t otel-actix -f Containerfile .
 
 # install the app
-helm install otel-actix
+cd charts/app
+helm install otel-actix .
+
+# port forward
+kubectl port-forward svc/otel-actix-service 8080:80
+
+# open a new terminal
+curl localhost:8080
 ```
 

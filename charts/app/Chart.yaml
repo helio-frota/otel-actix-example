@@ -5,4 +5,3 @@ appVersion: 0.1.0        # The app version
 description: OTEL basic example
 version: 0.1.0           # Chart version
 type: application        # We can tag a chart as a lib or app
-
