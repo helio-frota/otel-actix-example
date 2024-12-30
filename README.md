@@ -40,3 +40,10 @@ kubectl port-forward svc/otel-actix-service 8080:80
 # open a new terminal
 curl localhost:8080
 ```
+
+## :eyes: logs:
+
+```
+kubectl logs -l app=otel-actix --tail=100
+```
+
