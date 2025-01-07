@@ -22,8 +22,7 @@ kubectl create ns $NAMESPACE
 kubectl config set-context --current --namespace=$NAMESPACE
 
 # install jaeger
-helm upgrade --install --dependency-update -n $NAMESPACE infra charts/infra --values charts/infra/values.yaml --set-string jaeger.allInOne.ingress.hosts[0]=j
-aeger$APP_DOMAIN --set tracing.enabled=true
+helm upgrade --install --dependency-update -n $NAMESPACE infra charts/infra --values charts/infra/values.yaml --set-string jaeger.allInOne.ingress.hosts[0]=jaeger$APP_DOMAIN --set tracing.enabled=true
 
 # build app image within minikube
 minikube image build -t otel-actix -f Containerfile .

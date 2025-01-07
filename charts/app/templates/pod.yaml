@@ -20,5 +20,9 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            - name: OTEL_EXPORTER_OTLP_TRACES_PROTOCOL
+              value: "grpc"
+            - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
               value: {{.Values.otlpEndpoint | quote}}
+            # - name: OTEL_EXPORTER_OTLP_COMPRESSION
+            #   value: "gzip"

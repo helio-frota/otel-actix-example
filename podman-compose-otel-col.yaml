@@ -1,0 +1,10 @@
+services:
+  collector:
+    image: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector:latest
+    command: ["--config=/otel-collector-config.yaml"]
+    volumes:
+      - './otel-collector-config.yaml:/otel-collector-config.yaml:z'
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+      - "9464:9464"
