@@ -1,12 +1,16 @@
 ---
 apiVersion: v2
 name: infra
-description: Jaeger all in one
+description: OTEL-COL and Jaeger
 type: application
 version: 0.1.0
 appVersion: "0.1.0"
 
 dependencies:
+  - name: opentelemetry-collector
+    version: 0.110.3 # Latest versions has problems with config, waiting for them to update the example
+    repository: https://open-telemetry.github.io/opentelemetry-helm-charts
+    condition: opentelemetry-collector.enabled
   - name: jaeger
     repository: https://jaegertracing.github.io/helm-charts
     version: 3.3.3
