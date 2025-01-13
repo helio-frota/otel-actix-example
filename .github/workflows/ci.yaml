@@ -18,3 +18,5 @@ jobs:
           version: v3.13.0
       - run: |
           helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
+          helm repo add jaeger https://jaegertracing.github.io/helm-charts
+          
