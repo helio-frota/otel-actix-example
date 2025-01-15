@@ -2,7 +2,6 @@
 
 This is a test repo, code extracted from https://github.com/trustification/trustify
 
-```
 ## minikube with helm 
 
 ```
@@ -29,6 +28,7 @@ STATUS: deployed
 REVISION: 1
 TEST SUITE: None
 ```
+
 ```
 # build app image within minikube
 minikube image build -t otel-actix -f Containerfile .
