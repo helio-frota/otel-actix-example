@@ -33,7 +33,6 @@ opentelemetry-collector:
       otlp:
         protocols:
           grpc:
-            endpoint: "0.0.0.0:4317"
     exporters:
       otlp:
         endpoint: "{{ .Release.Name }}-jaeger-collector:4317"
@@ -42,7 +41,6 @@ opentelemetry-collector:
     service:
       pipelines:
         traces:
-          # exporters: [otlp, debug]
-          exporters: [debug]
+          exporters: [otlp, debug]
           processors: [batch]
           receivers: [otlp]
