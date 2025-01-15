@@ -33,14 +33,16 @@ opentelemetry-collector:
       otlp:
         protocols:
           grpc:
+            endpoint: "0.0.0.0:4317"
     exporters:
       otlp:
-        endpoint: "infra-jaeger-collector:4317"
+        endpoint: "{{ .Release.Name }}-jaeger-collector:4317"
         tls:
           insecure: true
     service:
       pipelines:
         traces:
-          exporters: [otlp, debug]
+          # exporters: [otlp, debug]
+          exporters: [debug]
           processors: [batch]
           receivers: [otlp]
