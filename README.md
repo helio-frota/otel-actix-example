@@ -54,3 +54,4 @@ curl localhost:8080
 ```
 kubectl logs -l app=otel-actix --tail=100
 ```
+![status](status.png)
