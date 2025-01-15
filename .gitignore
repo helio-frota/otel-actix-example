@@ -1,2 +1,4 @@
 target
 jaeger-3.3.3.tgz
+opentelemetry-collector-*.tgz
+
