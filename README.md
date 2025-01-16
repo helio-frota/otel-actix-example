@@ -20,7 +20,6 @@ kubectl config set-context --current --namespace=$NAMESPACE
 
 helm upgrade --install --dependency-update -n $NAMESPACE infra charts/infra --values charts/infra/values.yaml --set-string jaeger.allInOne.ingress.hosts[0]=jaeger$APP_DOMAIN --set tracing.enabled=true
 Release "infra" does not exist. Installing it now.
-coalesce.go:286: warning: cannot overwrite table with non table for infra.opentelemetry-collector.config.receivers.otlp.protocols.grpc (map[endpoint:${env:MY_POD_IP}:4317])
 NAME: infra
 LAST DEPLOYED: Wed Jan 15 13:27:43 2025
 NAMESPACE: trustify
