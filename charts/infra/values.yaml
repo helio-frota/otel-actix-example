@@ -17,6 +17,12 @@ jaeger:
   query:
     enabled: false
 
+env:
+  - name: MY_POD_IP
+    valueFrom:
+      fieldRef:
+        fieldPath: status.hostIP
+
 opentelemetry-collector:
   image:
     repository: "otel/opentelemetry-collector-contrib"
@@ -33,6 +39,7 @@ opentelemetry-collector:
       otlp:
         protocols:
           grpc:
+            endpoint: ${env:MY_POD_IP}:4317
     exporters:
       otlp:
         endpoint: "{{ .Release.Name }}-jaeger-collector:4317"
