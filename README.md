@@ -2,7 +2,7 @@
 
 This is a test repo, code extracted from https://github.com/trustification/trustify
 
-## minikube with helm 
+## minikube with helm
 
 ```
 # start

@@ -1,6 +1,6 @@
 services:
   collector:
-    image: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector:latest
+    image: ghcr.io/os-observability/redhat-opentelemetry-collector/redhat-opentelemetry-collector:v0.119.0
     command: ["--config=/otel-collector-config.yaml"]
     volumes:
       - './otel-collector-config.yaml:/otel-collector-config.yaml:z'
