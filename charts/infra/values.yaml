@@ -42,6 +42,8 @@ opentelemetry-collector:
           grpc:
             endpoint: ${env:MY_POD_IP}:4317
     exporters:
+      debug:
+        verbosity: detailed
       otlp:
         endpoint: "{{ .Release.Name }}-jaeger-collector:4317"
         tls:
