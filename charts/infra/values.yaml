@@ -25,10 +25,11 @@ env:
 
 opentelemetry-collector:
   image:
-    repository: "ghcr.io/os-observability/redhat-opentelemetry-collector/redhat-opentelemetry-collector"
-    tag: "v0.119.0"
+    repository: "otel/opentelemetry-collector"
   enabled: true
   nameOverride: otelcol
+  command:
+    name: "otelcol"
   mode: deployment
   presets:
     kubernetesAttributes:

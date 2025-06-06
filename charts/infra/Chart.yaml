@@ -8,7 +8,7 @@ appVersion: "0.1.0"
 
 dependencies:
   - name: opentelemetry-collector
-    version: 0.111.1
+    version: 0.126.0
     repository: https://open-telemetry.github.io/opentelemetry-helm-charts
     condition: opentelemetry-collector.enabled
   - name: jaeger
